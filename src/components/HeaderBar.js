@@ -10,7 +10,7 @@ const HeaderBar = () => {
             <Pressable
                 style={styles.headerIcon}
                 android_ripple={{
-                    color:config.colors.touchOpacity,
+                    color: config.colors.touchOpacity,
                     foreground: true,
                 }}
             >
@@ -35,11 +35,10 @@ const styles = StyleSheet.create({
         borderColor: config.colors.primaryTextColor,
         borderRadius: width * 0.5,
         overflow: "hidden",
-        left:"3%",
+        left: "3%",
     },
     headerText: {
         fontSize: config.fontSize.big,
-        borderWidth: 1,
         color: config.colors.primaryTextColor
     }
 })

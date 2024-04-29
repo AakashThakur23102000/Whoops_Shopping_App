@@ -3,9 +3,10 @@ import React from 'react'
 import config from '../../config/config'
 import HeaderBar from '../../components/HeaderBar'
 import Entypo from "react-native-vector-icons/Entypo"
-
+import MaterialIcons from "react-native-vector-icons/MaterialIcons"
+import LottieView from 'lottie-react-native'
 const { width, height } = Dimensions.get("screen")
-const SignIn = () => {
+const SignIn = ({ navigation }) => {
 
     return (
         <>
@@ -14,43 +15,85 @@ const SignIn = () => {
                 <View style={styles.innerView}>
                     {/* top */}
                     <View style={styles.topView}>
+                        {/* Page Heading */}
                         <Text style={styles.loginHeading}>Login</Text>
 
-                        <View style={styles.topViewInnerCointainer}>
-                            <View style={styles.topViewInnerCointainerTop}>
+                        <LottieView
+                            source={config.animationJSON.loginAnimation}
+                            style={{
+                                width: "100%",
+                                height: height * 0.2,
+                            }}
+                            resizeMode='contain'
+                            autoPlay
+                            loop
+                        />
 
-                                <View style={styles.textBoxView}>
-                                    <View style={styles.textBoxViewLeft}>
-                                        <Text style={styles.textBoxViewText}>Email</Text>
-                                        <TextInput style={styles.textBox} />
-                                    </View>
-                                </View>
-                                <View style={styles.textBoxView}>
-                                    <View style={styles.textBoxViewLeft}>
-                                        <Text style={styles.textBoxViewText}>Password</Text>
-                                        <TextInput style={styles.textBox} />
-                                    </View>
-                                </View>
-
-                                {/* forgot pass */}
-                                <Pressable
-                                    android_ripple={{
-                                        color: config.colors.touchOpacity,
-                                        foreground:true
-                                    }}
-                                    style={styles.forgotPassView}
-                                >
-                                    <Text style={styles.forgotPassText}>Forgot your Password</Text>
-                                    <Entypo
-                                        name="arrow-long-right"
-                                        size={width * 0.08}
-                                        color={"#e267b3"} 
-                                        style={{margin:0,padding:0}}/>
-                                </Pressable>
-
+                        {/* input box  */}
+                        <View style={styles.midView}>
+                            <View style={styles.inputContainerView}>
+                                <Text style={styles.felidHeadings}>Email</Text>
+                                <TextInput textContentType='emailAddress' style={styles.textInput} placeholder='Email' />
                             </View>
+                            <View style={styles.inputContainerView}>
+                                <Text style={styles.felidHeadings}>Password</Text>
+                                <TextInput secureTextEntry={true} textContentType='password' style={styles.textInput} placeholder='Password' />
+                            </View>
+
+
+                            {/* forgot pass */}
+                            <Pressable
+                                android_ripple={{
+                                    color: config.colors.touchOpacity,
+                                    foreground: true
+                                }}
+                                style={styles.forgotPassView}
+                            >
+                                <Text style={styles.forgotPassText}>Forgot your Password</Text>
+                                <Entypo
+                                    name="chevron-right"
+                                    size={width * 0.05}
+                                    color={"#e267b3"}
+                                    style={{ margin: 0, padding: 0 }} />
+                            </Pressable>
+                        </View>
+
+                    </View>
+
+                    {/* bottom */}
+                    <View style={styles.bottomView}>
+                        <Pressable
+                            style={styles.authButton}
+                            android_ripple={{
+                                color: config.colors.touchOpacity,
+                                foreground: true
+                            }}
+                        >
+                            <View style={{
+                                backgroundColor: config.colors.secondary100
+                            }}>
+                                <Text style={styles.authButtonText}>LOGIN</Text>
+                            </View>
+
+                        </Pressable>
+                        <View style={{
+                            alignItems: "center",
+                            flexDirection: "row"
+                        }}>
+                            <Text style={styles.bottomViewText}>Don't Have an Account?{" "}</Text>
+                            <Pressable
+                                android_ripple={{
+                                    color: config.colors.touchOpacity,
+                                    foreground: true
+                                }}
+                                onPress={()=>navigation.navigate("SignUpPage")}
+                            >
+                                <Text style={styles.bottomViewTextHighlighted}>Sign Up</Text>
+                            </Pressable>
+
                         </View>
                     </View>
+
 
                 </View>
             </View>
@@ -66,83 +109,116 @@ const styles = StyleSheet.create({
     },
     innerView: {
         // borderWidth: 1,
-        // borderColor: config.colors.primaryTextColor,
+        justifyContent: "space-between",
         height: "100%",
-        paddingVertical: height * 0.02
+        paddingVertical: height * 0.01,
+        paddingBottom: height * 0.05
     },
 
 
     topView: {
         // borderWidth: 1,
-        // borderColor: config.colors.primaryTextColor,
-        gap: height * 0.08,
-        paddingVertical: height * 0.04
+        gap: height * 0.04,
+
     },
     loginHeading: {
-        // borderWidth: 1,
-        // borderColor: config.colors.primaryTextColor,
         color: config.colors.primaryTextColor,
         fontSize: config.fontSize.huge,
+        fontFamily: config.fontWeight.aleo700
     },
-    topViewInnerCointainer: {
+
+
+    midView: {
         // borderWidth: 1,
-        // borderColor: config.colors.primaryTextColor,
+        width: "95%",
+        alignSelf: "center",
+        gap: height * 0.02
     },
-    topViewInnerCointainerTop: {
-        // borderWidth: 1,
-        // borderColor: config.colors.primaryTextColor,
+    inputContainerView: {
         gap: height * 0.01
     },
-    textBoxView: {
+    felidHeadings: {
         // borderWidth: 1,
-        // borderColor: config.colors.primaryTextColor,
-        borderRadius: width * 0.015,
-        backgroundColor: config.colors.primary1000,
-        paddingHorizontal: width * 0.05,
-        flexDirection: "row",
-        paddingVertical: height * 0.008
-    },
-    textBoxViewLeft: {
-        width: "90%",
-        gap: height * 0.01
-    },
-    textBoxViewText: {
         color: config.colors.primaryTextColor,
+        fontFamily: config.fontWeight.aleo700,
         fontSize: config.fontSize.regular
     },
-    textBox: {
-        backgroundColor: config.colors.primary1000,
-        // elevation: 4,
+    textInput: {
+        // borderWidth: 1,
         width: "100%",
-        height: height * 0.03,
-        padding: 0
+        alignSelf: "center",
+        height: height * 0.05,
+        padding: 0,
+        borderRadius: width * 0.05,
+        backgroundColor: config.colors.primary100,
+        paddingHorizontal: width * 0.04,
+        fontSize: config.fontSize.regular
     },
 
 
     forgotPassView: {
         flexDirection: "row",
-        width: width*0.37,
-        borderRadius:width*0.01,
-        // height: "17.4%",
-        // justifyContent: "flex-end",
+        width: "45%",
+        borderRadius: width * 0.01,
+
         alignSelf: "flex-end",
         alignItems: "center",
-        overflow:"hidden"
+        overflow: "hidden",
         // borderWidth: 1,
-        // borderColor: config.colors.primaryTextColor,    
     },
     forgotPassText: {
         flex: 1,
         padding: 0,
-        height:"100%",
-        textAlignVertical:"center",
+        height: "100%",
+        textAlignVertical: "center",
         paddingRight: width * 0.03,
         // borderWidth: 1,
-        fontSize:config.fontSize.small,
+        fontSize: config.fontSize.small,
         // borderColor: config.colors.primaryTextColor,
         textAlign: 'right',
-        color: config.colors.primaryTextColor
+        color: config.colors.primaryTextColor,
+        fontFamily: config.fontWeight.aleo500
+    },
+
+
+    // bottom 
+    bottomView: {
+        // borderWidth: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        gap: height * .01
+    },
+    authButton: {
+        // borderWidth: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: config.colors.secondary100,
+        paddingVertical: height * 0.01,
+        borderRadius: width * 0.03,
+        overflow: "hidden",
+        elevation: 4,
+        alignSelf: "center",
+        width: "100%"
+    },
+    authButtonText: {
+        fontSize: config.fontSize.big,
+        color: "white",
+        fontFamily: config.fontWeight.aleo800
+    },
+    bottomViewText: {
+        color: config.colors.primaryTextColor,
+        fontSize: config.fontSize.regular,
+        textAlign: "center",
+    },
+    bottomViewTextHighlighted: {
+
+        fontFamily: config.fontWeight.aleo800,
+        color: config.colors.secondary1000,
+        fontSize: config.fontSize.medium,
+        textAlign: "center",
+        alignSelf: "center",
     }
+
 })
 
 export default SignIn

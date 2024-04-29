@@ -1,0 +1,41 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Aleo-Black.ttf",
+      "sha1": "ed95686a31c13db4145107550c09ab4fcd353d93"
+    },
+    {
+      "path": "assets/fonts/Aleo-Bold.ttf",
+      "sha1": "073e01012aad6d62ff738e26946db6aa726bb53d"
+    },
+    {
+      "path": "assets/fonts/Aleo-ExtraBold.ttf",
+      "sha1": "2d34e89e5ff20f174e27af5f765476be28035a83"
+    },
+    {
+      "path": "assets/fonts/Aleo-ExtraLight.ttf",
+      "sha1": "29fae8f5e3852f12e1ec5b1751f861919de275e3"
+    },
+    {
+      "path": "assets/fonts/Aleo-Light.ttf",
+      "sha1": "af0c7d01f1ba3e8570d05e5b8ef5372ff400a131"
+    },
+    {
+      "path": "assets/fonts/Aleo-Medium.ttf",
+      "sha1": "24b52041db41ab76779f318bc3a3b0ec866e37ea"
+    },
+    {
+      "path": "assets/fonts/Aleo-Regular.ttf",
+      "sha1": "597f20b863e393f6094fc93838cc89df4ba63b87"
+    },
+    {
+      "path": "assets/fonts/Aleo-SemiBold.ttf",
+      "sha1": "e6e4b01712bf86cb719875f5589df3986dceb905"
+    },
+    {
+      "path": "assets/fonts/Aleo-Thin.ttf",
+      "sha1": "4597550c4a1ef4202822cd409a1697c048f582b9"
+    }
+  ]
+}

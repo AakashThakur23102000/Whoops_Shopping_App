@@ -36,7 +36,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -51,5 +51,17 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Aleo-Black.ttf</string>
+		<string>Aleo-Bold.ttf</string>
+		<string>Aleo-ExtraBold.ttf</string>
+		<string>Aleo-ExtraLight.ttf</string>
+		<string>Aleo-Light.ttf</string>
+		<string>Aleo-Medium.ttf</string>
+		<string>Aleo-Regular.ttf</string>
+		<string>Aleo-SemiBold.ttf</string>
+		<string>Aleo-Thin.ttf</string>
+	</array>
 </dict>
 </plist>

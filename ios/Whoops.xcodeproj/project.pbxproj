@@ -14,6 +14,15 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-Whoops-WhoopsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Whoops-WhoopsTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		57C07CBC8D4F471FA8B63AA6 /* Aleo-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4C0AF40C3F544A8A744A4B3 /* Aleo-Black.ttf */; };
+		5D0746DD729B477E88E100F7 /* Aleo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C7F17D13608A4D31AABC5531 /* Aleo-Bold.ttf */; };
+		F1BA638857AE433ABE3A15A5 /* Aleo-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 652A424401244BD793F07818 /* Aleo-ExtraBold.ttf */; };
+		F709C7DF713F45D8B7735B6B /* Aleo-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B5B50AEAD484E0CBA9E24C9 /* Aleo-ExtraLight.ttf */; };
+		D17CAAAD8AF14DA8AF8F835C /* Aleo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6AE1179B9B2646C0A9747BBE /* Aleo-Light.ttf */; };
+		673FE82EE04B4672A9BE99F3 /* Aleo-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1BAC28438C645A2A57436B4 /* Aleo-Medium.ttf */; };
+		99D5AA10B84043399B5E5356 /* Aleo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 630F00DF251044CBBD0B87B0 /* Aleo-Regular.ttf */; };
+		49780B6579964F6F836E0E45 /* Aleo-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 29279E1BBCDA49A694DCA128 /* Aleo-SemiBold.ttf */; };
+		03083D3B4A264516BA7EA90E /* Aleo-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAA88F2FB4214BAF8752A3E3 /* Aleo-Thin.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +53,15 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Whoops/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-Whoops-WhoopsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Whoops-WhoopsTests.release.xcconfig"; path = "Target Support Files/Pods-Whoops-WhoopsTests/Pods-Whoops-WhoopsTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		C4C0AF40C3F544A8A744A4B3 /* Aleo-Black.ttf */ = {isa = PBXFileReference; name = "Aleo-Black.ttf"; path = "../assets/fonts/Aleo-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C7F17D13608A4D31AABC5531 /* Aleo-Bold.ttf */ = {isa = PBXFileReference; name = "Aleo-Bold.ttf"; path = "../assets/fonts/Aleo-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		652A424401244BD793F07818 /* Aleo-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Aleo-ExtraBold.ttf"; path = "../assets/fonts/Aleo-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4B5B50AEAD484E0CBA9E24C9 /* Aleo-ExtraLight.ttf */ = {isa = PBXFileReference; name = "Aleo-ExtraLight.ttf"; path = "../assets/fonts/Aleo-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6AE1179B9B2646C0A9747BBE /* Aleo-Light.ttf */ = {isa = PBXFileReference; name = "Aleo-Light.ttf"; path = "../assets/fonts/Aleo-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D1BAC28438C645A2A57436B4 /* Aleo-Medium.ttf */ = {isa = PBXFileReference; name = "Aleo-Medium.ttf"; path = "../assets/fonts/Aleo-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		630F00DF251044CBBD0B87B0 /* Aleo-Regular.ttf */ = {isa = PBXFileReference; name = "Aleo-Regular.ttf"; path = "../assets/fonts/Aleo-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		29279E1BBCDA49A694DCA128 /* Aleo-SemiBold.ttf */ = {isa = PBXFileReference; name = "Aleo-SemiBold.ttf"; path = "../assets/fonts/Aleo-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DAA88F2FB4214BAF8752A3E3 /* Aleo-Thin.ttf */ = {isa = PBXFileReference; name = "Aleo-Thin.ttf"; path = "../assets/fonts/Aleo-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +140,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				F87FB5A53C724C888839BBEA /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +166,23 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		F87FB5A53C724C888839BBEA /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				C4C0AF40C3F544A8A744A4B3 /* Aleo-Black.ttf */,
+				C7F17D13608A4D31AABC5531 /* Aleo-Bold.ttf */,
+				652A424401244BD793F07818 /* Aleo-ExtraBold.ttf */,
+				4B5B50AEAD484E0CBA9E24C9 /* Aleo-ExtraLight.ttf */,
+				6AE1179B9B2646C0A9747BBE /* Aleo-Light.ttf */,
+				D1BAC28438C645A2A57436B4 /* Aleo-Medium.ttf */,
+				630F00DF251044CBBD0B87B0 /* Aleo-Regular.ttf */,
+				29279E1BBCDA49A694DCA128 /* Aleo-SemiBold.ttf */,
+				DAA88F2FB4214BAF8752A3E3 /* Aleo-Thin.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -244,6 +280,15 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				57C07CBC8D4F471FA8B63AA6 /* Aleo-Black.ttf in Resources */,
+				5D0746DD729B477E88E100F7 /* Aleo-Bold.ttf in Resources */,
+				F1BA638857AE433ABE3A15A5 /* Aleo-ExtraBold.ttf in Resources */,
+				F709C7DF713F45D8B7735B6B /* Aleo-ExtraLight.ttf in Resources */,
+				D17CAAAD8AF14DA8AF8F835C /* Aleo-Light.ttf in Resources */,
+				673FE82EE04B4672A9BE99F3 /* Aleo-Medium.ttf in Resources */,
+				99D5AA10B84043399B5E5356 /* Aleo-Regular.ttf in Resources */,
+				49780B6579964F6F836E0E45 /* Aleo-SemiBold.ttf in Resources */,
+				03083D3B4A264516BA7EA90E /* Aleo-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
