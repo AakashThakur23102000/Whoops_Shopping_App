@@ -4,10 +4,10 @@ import Entypo from "react-native-vector-icons/Entypo"
 import config from '../config/config'
 
 const { width, height } = Dimensions.get("screen")
-const HeaderBar = () => {
+const HeaderBar = ({navigation, pageName = "", goBack = false}) => {
     return (
         <View style={styles.screen}>
-            <Pressable
+            {goBack && (<Pressable
                 style={styles.headerIcon}
                 android_ripple={{
                     color: config.colors.touchOpacity,
@@ -15,8 +15,8 @@ const HeaderBar = () => {
                 }}
             >
                 <Entypo name="chevron-small-left" size={width * 0.08} color={config.colors.primaryTextColor} />
-            </Pressable>
-            <Text style={styles.headerText}>swdw</Text>
+            </Pressable>)}
+            <Text style={styles.headerText}>{pageName}</Text>
         </View>
     )
 }
