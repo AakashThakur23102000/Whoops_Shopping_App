@@ -12,9 +12,9 @@ const config = {
         touchOpacity: userTheme === "light" ? "rgba(0,0,0,0.08)" : "rgba(225,225,225,0.4)",
         primaryTextColor: userTheme === "light" ? "black" : "white",
         success: "#55D85A",
+        danger:"#FF2424",
         primary100: userTheme === "light" ? "#F5F5DC" : "#2A2C36",
         secondary100: "#f96cad",
-
         secondary800: "#a968de",
         secondary1000: "#7e66f8"
 
@@ -28,8 +28,8 @@ const config = {
         medium: width * 0.046,
         regular: width * 0.038,
         small: width * 0.028
-
     },
+    
     fontWeight: {
         aleo100: "Aleo-Thin",
         aleo200: "Aleo-ExtraLight",
@@ -46,7 +46,7 @@ const config = {
     },
     animationJSON: {
         loginAnimation: require("../../assets/animationJSON/SignIn.json"),
-        signUpAnimtion:require("../../assets/animationJSON/SignUp.json")
+        signUpAnimtion: require("../../assets/animationJSON/SignUp.json")
     }
 
 }

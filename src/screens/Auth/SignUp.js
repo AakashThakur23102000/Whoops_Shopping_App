@@ -2,88 +2,153 @@ import { View, Text, StyleSheet, Dimensions, TextInput, Pressable, ScrollView } 
 import React from 'react'
 import config from '../../config/config'
 import HeaderBar from '../../components/HeaderBar'
-import Entypo from "react-native-vector-icons/Entypo"
-import MaterialIcons from "react-native-vector-icons/MaterialIcons"
 import LottieView from 'lottie-react-native'
+import { Formik } from "formik"
+import * as Yup from "yup"
+
 const { width, height } = Dimensions.get("screen")
 const SignUp = ({ navigation }) => {
 
+    const SignupSchema = Yup.object().shape({
+        name: Yup.string()
+            .min(2, 'Name too short!')
+            .max(15, 'Name too long!')
+            .required('Please enter your full name.'),
+        email: Yup.string()
+            .email('Invalid email')
+            .required('Please enter your email.'),
+        password: Yup.string()
+            .required('Please enter your password.')
+            .matches(
+                /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
+                "Must contain minimum 8 characters. \n At least one uppercase English letter. \n At least one lowercase English letter. \n At least one digit.\n At least one special character."
+            ),
+    });
+
+
     return (
-        <>
-            <HeaderBar />
-            <ScrollView style={styles.screen} contentContainerStyle={{flexGrow:1}}>
-                <View style={styles.innerView}>
-                    {/* top */}
-                    <View style={styles.topView}>
-                        {/* Page Heading */}
-                        <Text style={styles.loginHeading}>Sign Up</Text>
+        <Formik
+            initialValues={{
+                name: "",
+                email: "",
+                password: ""
+            }}
+            validationSchema={SignupSchema}
+            onSubmit={(e, { resetForm }) => {
+                console.log(e);
+                resetForm()
+            }}
+        >
+            {({ values, errors, touched, handleChange, setFieldTouched, isValid, handleSubmit }) => (
+                <>
+                    <HeaderBar />
+                    <ScrollView style={styles.screen} contentContainerStyle={{ flexGrow: 1 }}>
+                        <View style={styles.innerView}>
+                            {/* top */}
+                            <View style={styles.topView}>
+                                {/* Page Heading */}
+                                <Text style={styles.loginHeading}>Sign Up</Text>
 
-                        <LottieView
-                            source={config.animationJSON.signUpAnimtion}
-                            style={{
-                                width: "100%",
-                                height: height * 0.2,
-                            }}
-                            resizeMode='contain'
-                            autoPlay
-                            loop
-                        />
+                                <LottieView
+                                    source={config.animationJSON.signUpAnimtion}
+                                    style={{
+                                        width: "100%",
+                                        height: height * 0.2,
+                                    }}
+                                    resizeMode='contain'
+                                    autoPlay
+                                    loop
+                                />
 
-                        {/* input box  */}
-                        <View style={styles.midView}>
-                            <View style={styles.inputContainerView}>
-                                <Text style={styles.felidHeadings}>Name</Text>
-                                <TextInput secureTextEntry={true} textContentType='name' style={styles.textInput} placeholder='Name' />
+                                {/* input box  */}
+                                <View style={styles.midView}>
+                                    <View style={styles.inputContainerView}>
+                                        <Text style={styles.felidHeadings}>Name</Text>
+                                        <View>
+                                            <TextInput secureTextEntry={true}
+                                                textContentType='name'
+                                                style={styles.textInput}
+                                                placeholder='Name'
+
+                                                value={values.name}
+                                                onChangeText={handleChange("name")}
+                                                onBlur={() => setFieldTouched("name")}
+                                            />
+                                            {touched.name && errors.name && (<Text style={styles.fieldsErrorsText}>{errors.name}</Text>)}
+                                        </View>
+                                    </View>
+                                    <View style={styles.inputContainerView}>
+                                        <Text style={styles.felidHeadings}>Email</Text>
+                                        <View>
+                                            <TextInput
+                                                textContentType='emailAddress'
+                                                style={styles.textInput}
+                                                placeholder='Email'
+
+                                                value={values.email}
+                                                onChangeText={handleChange("email")}
+                                                onBlur={() => setFieldTouched("email")}
+                                            />
+                                            {touched.email && errors.email && (<Text style={styles.fieldsErrorsText}>{errors.email}</Text>)}
+                                        </View>
+                                    </View>
+                                    <View style={styles.inputContainerView}>
+                                        <Text style={styles.felidHeadings}>Password</Text>
+                                        <View>
+                                            <TextInput
+                                                secureTextEntry={true}
+                                                textContentType='password'
+                                                style={styles.textInput}
+                                                placeholder='Password'
+
+                                                value={values.password}
+                                                onChangeText={handleChange("password")}
+                                                onBlur={() => setFieldTouched("password")}
+                                            />
+                                            {touched.password && errors.password && (<Text style={styles.fieldsErrorsText}>{errors.password}</Text>)}
+                                        </View>
+                                    </View>
+                                </View>
+
                             </View>
-                            <View style={styles.inputContainerView}>
-                                <Text style={styles.felidHeadings}>Email</Text>
-                                <TextInput textContentType='emailAddress' style={styles.textInput} placeholder='Email' />
+
+                            {/* bottom */}
+                            <View style={styles.bottomView}>
+                                <Pressable
+                                    style={[styles.authButton, { opacity: isValid ? 1 : 0.4 }]}
+                                    onPress={handleSubmit}
+                                    disabled={!isValid}
+                                    android_ripple={{
+                                        color: config.colors.touchOpacity,
+                                        foreground: true
+                                    }}
+                                >
+                                    <Text style={styles.authButtonText}>SIGN UP</Text>
+                                </Pressable>
+
+                                <View style={{
+                                    alignItems: "center",
+                                    flexDirection: "row"
+                                }}>
+                                    <Text style={styles.bottomViewText}>Already have Account,{" "}</Text>
+                                    <Pressable android_ripple={{
+                                        color: config.colors.touchOpacity,
+                                        foreground: true
+                                    }}
+                                        onPress={() => navigation.navigate("SignInPage")}
+                                    >
+                                        <Text style={styles.bottomViewTextHighlighted}>Login</Text>
+                                    </Pressable>
+
+                                </View>
                             </View>
-                            <View style={styles.inputContainerView}>
-                                <Text style={styles.felidHeadings}>Password</Text>
-                                <TextInput secureTextEntry={true} textContentType='password' style={styles.textInput} placeholder='Password' />
-                            </View>
+
+
                         </View>
-
-                    </View>
-
-                    {/* bottom */}
-                    <View style={styles.bottomView}>
-                        <Pressable
-                            style={styles.authButton}
-                            android_ripple={{
-                                color: config.colors.touchOpacity,
-                                foreground: true
-                            }}
-                        >
-                            <View style={{
-                                backgroundColor: config.colors.secondary100
-                            }}>
-                                <Text style={styles.authButtonText}>SIGN UP</Text>
-                            </View>
-
-                        </Pressable>
-                        <View style={{
-                            alignItems: "center",
-                            flexDirection: "row"
-                        }}>
-                            <Text style={styles.bottomViewText}>Already have Account,{" "}</Text>
-                            <Pressable android_ripple={{
-                                color: config.colors.touchOpacity,
-                                foreground: true
-                            }}
-                                onPress={() => navigation.navigate("SignInPage")}
-                            >
-                                <Text style={styles.bottomViewTextHighlighted}>Login</Text>
-                            </Pressable>
-
-                        </View>
-                    </View>
-
-
-                </View>
-            </ScrollView>
-        </>
+                    </ScrollView>
+                </>
+            )}
+        </Formik>
     )
 }
 
@@ -140,6 +205,12 @@ const styles = StyleSheet.create({
         paddingHorizontal: width * 0.04,
         fontSize: config.fontSize.regular
     },
+    fieldsErrorsText: {
+        // borderWidth: 1,
+        paddingHorizontal: width * 0.05,
+        color: config.colors.danger,
+        fontSize: config.fontSize.small
+    },
 
 
     forgotPassView: {
@@ -184,7 +255,7 @@ const styles = StyleSheet.create({
         overflow: "hidden",
         elevation: 4,
         alignSelf: "center",
-        width: "100%"
+        width: "100%",
     },
     authButtonText: {
         fontSize: config.fontSize.big,
