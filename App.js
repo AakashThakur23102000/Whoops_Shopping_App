@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StyleSheet, StatusBar } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, StatusBar, Appearance } from 'react-native'
 import React from 'react'
 import config from './src/config/config'
 import { NavigationContainer } from '@react-navigation/native';
@@ -13,6 +13,7 @@ import FavoritesScreen from './src/screens/FavoritesScreen/FavoritesScreen';
 import CartScreen from './src/screens/CartScreen/CartScreen';
 import CustomBottomNaviator from './src/components/CustomBottomNaviator';
 
+var userTheme = Appearance.getColorScheme();
 const statusBarHeight = StatusBar.currentHeight;
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -28,7 +29,7 @@ const App = () => {
             headerShown: false
           }
         }}
-        tabBar={({navigation,state})=><CustomBottomNaviator navigation={navigation} state={state} />}
+        tabBar={({ navigation, state }) => <CustomBottomNaviator navigation={navigation} state={state} />}
       >
         <Tab.Screen name='HomeScreenPage' component={HomeScreen} />
         <Tab.Screen name='CartScreenPage' component={CartScreen} />
@@ -44,7 +45,7 @@ const App = () => {
     <SafeAreaView style={styles.screen}>
       <StatusBar
         translucent={true}
-        barStyle={'light-content'}
+        barStyle={userTheme === "light"?"dark-content":'light-content'}
         backgroundColor={config.colors.theme}
       />
       <NavigationContainer>

@@ -1,33 +1,71 @@
-import { View, Text, Dimensions, StyleSheet } from 'react-native'
-import React from 'react'
+import { View, Text, Dimensions, StyleSheet, Pressable } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import config from '../config/config'
 import AntDesign from "react-native-vector-icons/AntDesign"
+import Animated, { Easing, ReduceMotion, useAnimatedStyle, useSharedValue, withTiming, } from 'react-native-reanimated'
+import CustomBottomNaviatorText from './CustomBottomNaviatorText'
+
 
 var { width, height } = Dimensions.get("screen")
 
-const CustomBottomNaviator = ({navigation,state}) => {
-    console.log(state)
+const CustomBottomNaviator = ({ navigation, state }) => {
+
+    console.log(state.index)
+
+    var navActivePositionArray = [width * 0.065, width * 0.26, width * 0.455, width * 0.655]
+    var navActiveInitialPosition = useSharedValue(navActivePositionArray[state.index])
+    var navActiveAnimatedStyles = useAnimatedStyle(() => {
+        return {
+            transform: [
+                { translateX: navActiveInitialPosition.value },
+            ]
+        }
+    })
+
+    useEffect(() => {
+        navActiveInitialPosition.value = withTiming(navActivePositionArray[state.index], {
+            duration: 300,
+            easing: Easing.linear,
+            reduceMotion: ReduceMotion.System,
+        })
+    }, [state.index])
+
     return (
         <View style={styles.screen}>
+
             {/* selected Box */}
-            <View style={styles.selectedView} />
+            <Animated.View style={[styles.selectedView, navActiveAnimatedStyles]} />
+
+
             {/* navigation  */}
-            <View style={styles.itemBox}>
+            <Pressable
+                style={styles.itemBox}
+                onPress={() => navigation.navigate("HomeScreenPage")}
+            >
                 <AntDesign name="home" size={width * 0.07} color={config.colors.secondary1000} />
-                <Text style={styles.naviagationText}>Home</Text>
-            </View>
-            <View style={styles.itemBox}>
+                <CustomBottomNaviatorText text={"Home"} activeStatus={state.index === 0}/>
+            </Pressable>
+            <Pressable
+                style={styles.itemBox}
+                onPress={() => navigation.navigate("CartScreenPage")}
+            >
                 <AntDesign name="shoppingcart" size={width * 0.07} color={config.colors.secondary1000} />
-                <Text style={styles.naviagationText}>Cart</Text>
-            </View>
-            <View style={styles.itemBox}>
+                <CustomBottomNaviatorText text={"Cart"} activeStatus={state.index === 1}/>
+            </Pressable>
+            <Pressable
+                style={styles.itemBox}
+                onPress={() => navigation.navigate("FavoritesScreenPage")}
+            >
                 <AntDesign name="hearto" size={width * 0.07} color={config.colors.secondary1000} />
-                <Text style={styles.naviagationText}>Favorites</Text>
-            </View>
-            <View style={styles.itemBox}>
+                <CustomBottomNaviatorText text={"Favorites"} activeStatus={state.index === 2}/>
+            </Pressable>
+            <Pressable
+                style={styles.itemBox}
+                onPress={() => navigation.navigate("ProfileScreenPage")}
+            >
                 <AntDesign name="user" size={width * 0.07} color={config.colors.secondary1000} />
-                <Text style={styles.naviagationText}>Profile</Text>
-            </View>
+                <CustomBottomNaviatorText text={"Profile"} activeStatus={state.index === 3}/>
+            </Pressable>
         </View>
     )
 }
@@ -43,24 +81,26 @@ const styles = StyleSheet.create({
     },
     itemBox: {
         // borderWidth: 1,
+        height:"80%",
+        paddingHorizontal:width*0.02,
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
         gap: width * 0.02
     },
-    naviagationText: {
-        color: config.colors.secondary1000,
-        fontSize: config.fontSize.regular
-    },
 
 
     selectedView: {
         position: "absolute",
-        width: width * 0.25,
+        width: width * 0.28,
         height: "70%",
         backgroundColor: config.colors.secondary1000,
         opacity: 0.35,
         borderRadius: width * 0.02,
+        left: 0,
+        transform: [
+            { translateX: width * 0.65 }
+        ]
     }
 })
 
